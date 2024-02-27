@@ -28,8 +28,8 @@ def draw_hollow_circle(color, cx, cy, rx, ry):
 
     for i in range(num_segments):
         angle = 2 * math.pi * i / num_segments
-        x = cx + rx * math.cos(angle)
-        y = cy + ry * math.sin(angle)
+        x = (cx*factor) + (rx*factor) * math.cos(angle)
+        y = (cy*factor) + (ry*factor) * math.sin(angle)
         glVertex2f(x, y)
 
     glEnd()
@@ -41,8 +41,8 @@ def DibujarElipse(cx, cy, rx, ry, *color):
     glBegin(GL_TRIANGLE_FAN)  
     for i in range(segments):
         angle = 2 * math.pi * i / segments
-        x = cx + rx * math.cos(angle)
-        y = cy + ry * math.sin(angle)
+        x = (cx*factor) + (rx*factor) * math.cos(angle)
+        y = (cy*factor) + (ry*factor) * math.sin(angle)
         glVertex2f(x, y)
     glEnd()
     

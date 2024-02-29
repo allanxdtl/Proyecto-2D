@@ -15,10 +15,18 @@ def main():
 
     glfw.make_context_current(window)
     
+    
+    contador = 0
+    state = True
 
     while not glfw.window_should_close(window):
         glClearColor(172/255, 227/255, 82/255, 1.0)
         glClear(GL_COLOR_BUFFER_BIT)
+        
+        #glRotatef(0.01,0,1,0)
+        #glScalef(contador/100, contador/100, contador/100)contador+=1
+        
+        #glScalef(contador, contador, contador)
         
         #el anterior era 0.19
         factor = 0.19
@@ -567,9 +575,21 @@ def main():
                                             [-0.3545162138278,2.5554767030848],
                                             [-0.8524297468592,2.2962769567463]), GL_LINE_LOOP)
         
+        #Bolitas del sombrero
         DibujarElipse(-0.6117838058891,2.5615007994326, 0.055,0.195, 0,0,0)
         DibujarElipse(-0.7365074466036,2.7293980080868, 0.055, 0.040, 0,0,0)
-           
+        DibujarElipse(-0.6922065713196,2.0845599055897, 0.084, 0.084, 0,0,0)   
+        DibujarElipse(-0.502556272344,2.1103862671258, 0.055, 0.055, 0,0,0)    
+        
+        
+        #CARA
+        draw_lines_connected([0,0,0], ([-0.3151948564774,1.3971353637898],
+                                       [-0.2016106821232,1.3582366739425],
+                                       [-0.0794687960026,1.3551247787547],
+                                       [0.1290281815791,1.3559027525516],
+                                       [0.2575031322027,1.3765505124733],
+                                       [0.3217406075145,1.3994924679418]), GL_LINE_STRIP)#SONRISA
+            
         glfw.swap_buffers(window)
         glfw.poll_events()
 

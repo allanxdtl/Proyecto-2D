@@ -15,16 +15,27 @@ def main():
 
     glfw.make_context_current(window)
     
-    
-    contador = 0
-    state = True
+    """scale_factor=2.0
+    scalade_up=True
+    scala_min=0.1
+    scala_max=1.0"""
 
     while not glfw.window_should_close(window):
         glClearColor(172/255, 227/255, 82/255, 1.0)
         glClear(GL_COLOR_BUFFER_BIT)
         
-        #glRotatef(0.01,0,1,0)
-        #glScalef(contador/100, contador/100, contador/100)contador+=1
+        glRotatef(0.2,1,1,0)
+        """glScalef(scale_factor, scale_factor, scale_factor)
+        
+        if scalade_up:
+            scale_factor+=0.01
+            if scale_factor >= scala_max:
+                scalade_up=False
+        else:
+            scale_factor-=0.01
+            if scale_factor <= scala_min:
+                scalade_up=True"""
+        
         
         #glScalef(contador, contador, contador)
         

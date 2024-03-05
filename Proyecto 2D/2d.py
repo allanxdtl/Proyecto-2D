@@ -15,16 +15,18 @@ def main():
 
     glfw.make_context_current(window)
     
-    """scale_factor=2.0
+    scale_factor=0.01
     scalade_up=True
     scala_min=0.1
-    scala_max=1.0"""
+    scala_max=0.10
+    
+    angulo = 0.01
 
     while not glfw.window_should_close(window):
         glClearColor(172/255, 227/255, 82/255, 1.0)
         glClear(GL_COLOR_BUFFER_BIT)
         
-        glRotatef(0.2,1,1,0)
+        #glRotatef(0.2,1,1,0)
         """glScalef(scale_factor, scale_factor, scale_factor)
         
         if scalade_up:
@@ -791,6 +793,19 @@ def main():
         draw_line([0,0,0], ([0.078593032033,-2.5105470620648]), ([0.1776728012767,-2.4007233574441]))                          
         draw_line([0,0,0], ([0.1065624386993,-2.1465065499348]), ([0.2,-2]))
         
+        glPushMatrix()
+        
+        glRotatef(angulo,0,1,0)
+        
+        if scalade_up:
+            scale_factor+=0.01
+            if scale_factor >= scala_max:
+                scalade_up=False
+        else:
+            scale_factor-=0.01
+            if scale_factor <= scala_min:
+                scalade_up=True
+        
         #Sombrero
         #Base
         draw_lines_connected([233,238,236], ([-0.9185752976732,2.2574832248269],
@@ -1029,6 +1044,10 @@ def main():
                                              [0.4854646319233,0.2614393135258],
                                              [0.5316628745108,0.2899155877012],
                                              [0.5328004717326,1.0654061256416]), GL_TRIANGLE_FAN)#COLGANTE derecjo
+        
+        glPopMatrix()
+        
+        angulo+=0.1
         
                     
         glfw.swap_buffers(window)

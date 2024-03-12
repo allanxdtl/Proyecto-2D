@@ -912,7 +912,7 @@ def main():
         
         glPushMatrix()
         
-        glRotatef(angulo,2,1,0)
+        glRotatef(angulo,10,1,0)
         #glTranslatef(angulo, 0, 0)
         glScalef(scale_factor, scale_factor, scale_factor)
         

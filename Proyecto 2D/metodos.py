@@ -19,6 +19,20 @@ def draw_lines_connected(color, points, argument):
         glColor(color[0]/255, color[1]/255, color[2]/255)
     glEnd()
     
+def draw_lines_connected_variant(color, points):
+    glBegin(GL_TRIANGLE_FAN)
+    glColor(color[0]/255, color[1]/255, color[2]/255)
+    for i in points:
+        glVertex2f(i[0]*factor, i[1]*factor)
+        glColor(color[0]/255, color[1]/255, color[2]/255)
+    glEnd()
+    
+    glBegin(GL_LINE_LOOP)
+    glColor(0,0,0)
+    for i in points:
+        glVertex2f(i[0]*factor, i[1]*factor)
+    glEnd()
+    
     
 def draw_hollow_circle(color, cx, cy, rx, ry):
     num_segments=100

@@ -1938,14 +1938,10 @@ def main():
  
 
         glPopMatrix()
-        
-        
- 
-        angulo+=0.1
-          
+        angulo+=0.1  
         glfw.swap_buffers(window)
         glfw.poll_events()
-
+        
     glfw.terminate()
 
 if __name__ == "__main__":

@@ -17,8 +17,8 @@ def main():
     
     scale_factor=0.01
     scalade_up=True
-    scala_min=0.01
-    scala_max=0.80
+    scala_min=0.5
+    scala_max=1.2
     
     angulo = 0.01
 
@@ -2114,9 +2114,8 @@ def main():
         glPushMatrix()
         glTranslatef(x*factor, y*factor, 0.0)
         
-        """glTranslatef(0, scale_factor, 0)
-        glRotatef(angulo, 0,0,1)
-        glScale(scale_factor,1, 0)
+        #glRotatef(angulo, 0,0,1)
+        glScale(scale_factor,scale_factor, 0)
         
         if scalade_up:
             scale_factor+=0.01
@@ -2127,7 +2126,7 @@ def main():
             if scale_factor <= scala_min:
                 scalade_up=True
                 
-        angulo+=0.1 """
+        angulo+=0.1 
         
         #Colores base para la abeja
         draw_lines_connected([255,224,2], ([-2.8495411056179, 2.1403806676735],

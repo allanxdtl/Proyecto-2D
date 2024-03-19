@@ -28,25 +28,6 @@ def main():
         glClear(GL_COLOR_BUFFER_BIT)
         
         color_camisa = [238, 194, 69]
-        
-        #glRotatef(0.2,1,1,0)
-        
-        """glScalef(scale_factor, scale_factor, scale_factor)
-        
-        if scalade_up:
-            scale_factor+=0.01
-            if scale_factor >= scala_max:
-                scalade_up=False
-        else:
-            scale_factor-=0.01
-            if scale_factor <= scala_min:
-                scalade_up=True"""
-        
-        
-        #glScalef(contador, contador, contador)
-        
-        #el anterior era 0.19
-        factor = 0.19
 
         # Configuración de la vista ortográfica
         glMatrixMode(GL_PROJECTION)
@@ -107,6 +88,22 @@ def main():
                                        [-1.18378199466,0.7114551657034],
                                        [-0.8935359559745,0.9708239662309]), GL_TRIANGLE_FAN)
         
+        #CUELLO
+        draw_lines_connected([208,171,128], ([-0.9534622963338,1.4288061272181],
+                                             [-1.0427942355693,1.7257034546774],
+                                             [-0.8746399970083,1.8176628038905],
+                                             [-0.4384899407406,1.9936992723841],
+                                             [0.1369128443353,2.0120911422267],
+                                             [0.7490993690966,1.9096221531035],
+                                             [1.1432108657239,1.815035393913],#Este es el que debo editar
+                                             [1.0512515165109,1.575941085959],
+                                             [0.909371377725,1.3604934678027],
+                                             [0.7018059895013,1.1424184396689],
+                                             [0.5535417911384,1.0649237389943],
+                                             [0.4252665920493,1.0198270701853],
+                                             [0.0589712800678,0.8956591678187],
+                                             [-0.6835707364999,1.1560873951791]), GL_TRIANGLE_FAN)
+        
         #Contorno brazo derecho
         draw_lines_connected([0,0,0], ([1.2529254847703,1.8737634314971],
                                        [1.6611164195854,1.5376061910611],
@@ -142,10 +139,6 @@ def main():
                                        [0.7717445811745,1.2411000686105],
                                        [1,1.6],
                                        [1.0573714027492,1.8678152305124]), GL_TRIANGLE_FAN)
-        
-        #DibujarElipse(0, 0, 0.2408*factor, 0.3884*factor, 255, 255, 255)
-        #draw_hollow_circle([0,0,0], 0,0, 0.2408*factor, 0.3884*factor)
-        #DibujarElipse(-0.215539414414*factor,0.1244825615436*factor, 0.012*factor, 0.012*factor, 0,0,0)
         
         #LOGO de la camisa
         
@@ -910,21 +903,6 @@ def main():
         draw_line([0,0,0], ([0.078593032033,-2.5105470620648]), ([0.1776728012767,-2.4007233574441]))                          
         draw_line([0,0,0], ([0.1065624386993,-2.1465065499348]), ([0.2,-2]))
         
-        glPushMatrix()
-        
-        #glRotatef(angulo,10,1,0)
-        #glTranslatef(angulo, 0, 0)
-        #glScalef(scale_factor, scale_factor, scale_factor)
-        
-        if scalade_up:
-            scale_factor+=0.01
-            if scale_factor >= scala_max:
-                scalade_up=False
-        else:
-            scale_factor-=0.01
-            if scale_factor <= scala_min:
-                scalade_up=True
-                
         #Aretes
         draw_lines_connected([198,173,121], ([-0.7015570669731,1.6649685994658],
                                              [-0.721076212512,1.6501340488562],
@@ -1064,10 +1042,6 @@ def main():
                                             [-0.8524297468592,2.2962769567463]), GL_LINE_LOOP)
         
         #Bolitas del sombrero, abajo
-        """DibujarElipse(-0.6117838058891,2.5615007994326, 0.055,0.195, 0,0,0)
-        DibujarElipse(-0.7365074466036,2.7293980080868, 0.055, 0.040, 0,0,0)
-        DibujarElipse(-0.6922065713196,2.0845599055897, 0.084, 0.084, 0,0,0)   
-         """   
         
         draw_lines_connected([0,0,0], ([-0.8396312515399,1.9149677269529],
                                        [-0.7842848549681,1.939181775453],
@@ -1402,8 +1376,6 @@ def main():
                                        [0.8187857789079,2.5161830450379],
                                        [0.8150941284842,2.4851731814789]), GL_TRIANGLE_FAN)
         
-        #draw_lines_connected([0,0,0], ([]), GL_TRIANGLE_FAN)
-        
         #OREJAs
         draw_lines_connected([212,172,120], ([0.6931119873492,1.8607058320585],
                                              [0.798168894941,1.8283051035489],
@@ -1549,7 +1521,6 @@ def main():
                                        [0.3568339612271,1.840741752973],
                                        [0.3774980675381,1.8602578533778],
                                        [0.3780720704911,1.8946980305628]), GL_TRIANGLE_FAN)#PUPILA
-        glPopMatrix()
         
         #dobleces de la camisa
         draw_lines_connected(black, ([-1.3858891418648,-0.9714753351362],
@@ -1880,8 +1851,20 @@ def main():
         
         glPushMatrix()
         
-        glTranslatef(scale_factor, 0, 0)
+        glTranslatef(0, scale_factor, 0)
         glRotatef(angulo, 0,0,1)
+        glScale(scale_factor,1, 0)
+        
+        if scalade_up:
+            scale_factor+=0.01
+            if scale_factor >= scala_max:
+                scalade_up=False
+        else:
+            scale_factor-=0.01
+            if scale_factor <= scala_min:
+                scalade_up=True
+                
+        angulo+=0.1 
         
         #Colores base para la abeja
         draw_lines_connected([255,224,2], ([-2.8495411056179, 2.1403806676735],
@@ -1937,8 +1920,7 @@ def main():
                                        [-3.0381018264296, 1.7651031025472]), GL_POLYGON)
  
 
-        glPopMatrix()
-        angulo+=0.1  
+        glPopMatrix() 
         glfw.swap_buffers(window)
         glfw.poll_events()
         

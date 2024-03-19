@@ -1,7 +1,7 @@
 from OpenGL.GL import *
 import math
 
-factor=0.20
+factor=0.17
 
 def draw_line(color, p1, p2):
     glBegin(GL_LINES)

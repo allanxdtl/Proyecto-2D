@@ -2112,7 +2112,7 @@ def main():
         x = center_x + radius * math.cos(angle)
         y = center_y + radius * math.sin(angle)
         glPushMatrix()
-        glTranslatef(x*0.17, y*0.17, 0.0)
+        glTranslatef(x*factor, y*factor, 0.0)
         
         """glTranslatef(0, scale_factor, 0)
         glRotatef(angulo, 0,0,1)

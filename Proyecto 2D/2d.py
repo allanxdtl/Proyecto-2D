@@ -2103,19 +2103,6 @@ def main():
                                        [1.2567293455548,-1.7544951583109]), GL_LINE_LOOP)
         
         #-------------ESPACIO PARA DIBUJAR LA ABEJA-------------
-        angle = glfw.get_time()  # Obtener el tiempo actual para la rotación
-        radius = 3.0  # Radio del círculo en el que la abeja se moverá
-        center_x = 0.0  # Coordenada x del centro del círculo
-        center_y = 0.0  # Coordenada y del centro del círculo
-
-        # Calcular las nuevas coordenadas usando funciones trigonométricas
-        x = center_x + radius * math.cos(angle)
-        y = center_y + radius * math.sin(angle)
-        glPushMatrix()
-        glTranslatef(x*factor, y*factor, 0.0)
-        
-        #glRotatef(angulo, 0,0,1)
-        glScale(scale_factor,scale_factor, 0)
         
         if scalade_up:
             scale_factor+=0.01
@@ -2125,6 +2112,21 @@ def main():
             scale_factor-=0.01
             if scale_factor <= scala_min:
                 scalade_up=True
+        
+        angle = glfw.get_time()  # Obtener el tiempo actual para la rotación
+        radius = 3.0  # Radio del círculo en el que la abeja se moverá
+        center_x = 0.0  # Coordenada x del centro del círculo
+        center_y = 0.0  # Coordenada y del centro del círculo
+
+        # Calcular las nuevas coordenadas usando funciones trigonométricas
+        x = center_x + radius * math.cos(angle)
+        y = center_y + radius * math.sin(angle)
+        glPushMatrix()
+        
+        glTranslatef(x*factor, y*factor, 0.0)
+        glRotatef(math.degrees(angle), 0.0, 0, 1.0)
+        glScale(scale_factor,scale_factor, 0)
+       
                 
         angulo+=0.1 
         
